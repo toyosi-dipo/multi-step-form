@@ -1,0 +1,103 @@
+.formSection {
+  border-top: 0.3rem solid var(--main-color);
+  border-radius: 10px;
+}
+
+.formSection h3 {
+  margin: 3rem 0 2rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.groupName {
+  display: none;
+}
+
+.formGroups {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 3px solid #c5c3c3;
+}
+
+.groupLogo {
+  /* border: 1px solid red; */
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #868080;
+}
+
+.formGroup.active,
+.formGroup.active svg {
+  color: var(--main-color);
+  color: #8d078d;
+}
+
+.form {
+  margin-top: 3rem;
+}
+
+.form fieldset {
+  border: none;
+  padding: 0 1.5rem;
+  transition: all 0.5s linear;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
+.form h4 {
+  font-size: 1.25rem;
+  border-bottom: 1rem;
+}
+
+.submitBtn {
+  display: block;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  margin: 1rem auto 2.5rem;
+  background: var(--main-color);
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  .formContainer {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    border-top: 1px solid var(--main-color);
+    /* border-bottom: 1px solid var(--main-color); */
+  }
+
+  .groupName {
+    display: block;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .formGroups {
+    border: none;
+    /* border-right: 1px solid var(--main-color); */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem 0;
+    padding: 0 0 2rem;
+  }
+
+  .formGroup {
+    /* border: 1px solid red; */
+    display: grid;
+    place-items: center;
+  }
+}

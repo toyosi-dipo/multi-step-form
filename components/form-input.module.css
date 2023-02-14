@@ -1,0 +1,30 @@
+.inputGroup {
+  margin-bottom: 1rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.formInput {
+  padding: 0.5rem 0.75rem;
+  background: #e2eaec;
+  font-size: 1.25rem;
+  width: 100%;
+  border: transparent;
+  border-radius: 0.5rem;
+  color: #3d4041;
+  text-transform: capitalize;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.formInput:focus {
+  outline: 2px solid var(--main-color);
+}
+
+.formInput::placeholder {
+  font-size: 1.15rem;
+}
