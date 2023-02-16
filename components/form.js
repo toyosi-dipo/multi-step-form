@@ -2,9 +2,42 @@ import formData from "@/utils/form-data";
 import SingleFormInput from "@/components/form-input";
 import styles from "./form.module.css";
 import { useGlobalContext } from "@/context/form-context";
+import Modal from "./modal";
 
 function Form() {
-  const { step, jumpToStep } = useGlobalContext();
+  const { step, jumpToStep, modalHandler, setFilledFormData, filledFormData } =
+    useGlobalContext();
+  const {
+    first_name,
+    middle_name,
+    surname,
+    d_o_b,
+    marital_status,
+    department,
+    position,
+    supervisor,
+    phone,
+    email,
+    street_address,
+    city,
+    state,
+    zip,
+    high_school,
+    h_s_from,
+    h_s_to,
+    h_s_degree,
+    h_s_city,
+    h_s_state,
+    college,
+    col_from,
+    col_to,
+    col_degree,
+    col_city,
+    col_state,
+    emg_name,
+    emg_relationship,
+    emg_phone,
+  } = filledFormData;
 
   return (
     <section className={styles.formSection}>
@@ -15,6 +48,7 @@ function Form() {
           {formData.map((item, index) => {
             return (
               <div
+                key={index}
                 className={
                   index + 1 === step
                     ? `${styles.formGroup} ${styles.active}`
@@ -35,59 +69,128 @@ function Form() {
             style={{ height: step === 1 ? "auto" : "0" }}
             id="personal"
           >
-            <SingleFormInput name="first-name" label="First Name" />
-            <SingleFormInput name="middle-name" label="Middle Name" />
-            <SingleFormInput name="surname" label="Surname" />
             <SingleFormInput
-              name="d-o-b"
+              value={first_name}
+              name="first_name"
+              label="First Name"
+            />
+            <SingleFormInput
+              value={middle_name}
+              name="middle_name"
+              label="Middle Name"
+            />
+            <SingleFormInput value={surname} name="surname" label="Surname" />
+            <SingleFormInput
+              value={d_o_b}
+              name="d_o_b"
               placeholder="DD/MM/YYYY"
               label="Date of Birth"
             />
-            <SingleFormInput name="marital-status" label="Marital Status" />
-            <SingleFormInput name="department" label="Department" />
-            <SingleFormInput name="position" label="Position" />
-            <SingleFormInput name="supervisor" label="Supervisor" />
+            <SingleFormInput
+              value={marital_status}
+              name="marital_status"
+              label="Marital Status"
+            />
+            <SingleFormInput
+              value={department}
+              name="department"
+              label="Department"
+            />
+            <SingleFormInput
+              value={position}
+              name="position"
+              label="Position"
+            />
+            <SingleFormInput
+              value={supervisor}
+              name="supervisor"
+              label="Supervisor"
+            />
           </fieldset>
           <fieldset style={{ height: step === 2 ? "auto" : "0" }} id="contact">
-            <SingleFormInput name="phone" type="number" label="Phone" />
-            <SingleFormInput name="email" type="email" label="Email Address" />
-            <SingleFormInput name="street-address" label="Street Address" />
-            <SingleFormInput name="city" label="City" />
-            <SingleFormInput name="state" label="State" />
-            <SingleFormInput name="zip" label="ZIP" />
+            <SingleFormInput
+              value={phone}
+              name="phone"
+              type="number"
+              label="Phone"
+            />
+            <SingleFormInput
+              value={email}
+              name="email"
+              type="email"
+              label="Email Address"
+            />
+            <SingleFormInput
+              value={street_address}
+              name="street_address"
+              label="Street Address"
+            />
+            <SingleFormInput value={city} name="city" label="City" />
+            <SingleFormInput value={state} name="state" label="State" />
+            <SingleFormInput value={zip} name="zip" label="ZIP" />
           </fieldset>
           <fieldset
             style={{ height: step === 3 ? "auto" : "0" }}
             id="education"
           >
             <h4>High School</h4>
-            <SingleFormInput name="high-school" label="Name" />
-            <SingleFormInput name="h-s-from" label="From" />
-            <SingleFormInput name="h-s-to" label="To" />
-            <SingleFormInput name="h-s-degree" label="Degree" />
-            <SingleFormInput name="h-s-city" label="city" />
-            <SingleFormInput name="h-s-state" label="State" />
+            <SingleFormInput
+              value={high_school}
+              name="high_school"
+              label="Name"
+            />
+            <SingleFormInput value={h_s_from} name="h_s_from" label="From" />
+            <SingleFormInput value={h_s_to} name="h_s_to" label="To" />
+            <SingleFormInput
+              value={h_s_degree}
+              name="h_s_degree"
+              label="Degree"
+            />
+            <SingleFormInput value={h_s_city} name="h_s_city" label="city" />
+            <SingleFormInput value={h_s_state} name="h_s_state" label="State" />
             <h4>College</h4>
-            <SingleFormInput name="college" label="Name" />
-            <SingleFormInput name="col-from" label="From" />
-            <SingleFormInput name="col-to" label="To" />
-            <SingleFormInput name="col-degree" label="Degree" />
-            <SingleFormInput name="col-city" label="city" />
-            <SingleFormInput name="col-state" label="State" />
+            <SingleFormInput value={college} name="college" label="Name" />
+            <SingleFormInput value={col_from} name="col_from" label="From" />
+            <SingleFormInput value={col_to} name="col_to" label="To" />
+            <SingleFormInput
+              value={col_degree}
+              name="col_degree"
+              label="Degree"
+            />
+            <SingleFormInput value={col_city} name="col_city" label="city" />
+            <SingleFormInput value={col_state} name="col_state" label="State" />
           </fieldset>
           <fieldset
             style={{ height: step === 4 ? "auto" : "0" }}
             id="emergency"
           >
-            <SingleFormInput name="emg-name" label="Emergency Contact Name" />
-            <SingleFormInput name="emg-relationship" label="relationship" />
-            <SingleFormInput name="phone" label="Phone" type="number" />
+            <SingleFormInput
+              value={emg_name}
+              name="emg_name"
+              label="Emergency Contact Name"
+            />
+            <SingleFormInput
+              value={emg_relationship}
+              name="emg_relationship"
+              label="relationship"
+            />
+            <SingleFormInput
+              value={emg_phone}
+              name="emg_phone"
+              label="Phone"
+              type="number"
+            />
           </fieldset>
           {step === 4 && (
-            <button className={styles.submitBtn} type="submit">
-              Submit
+            <button
+              onClick={modalHandler}
+              className={styles.previewBtn}
+              type="button"
+            >
+              Preview & Submit
             </button>
           )}
+          <Modal />
         </form>
       </div>
     </section>
