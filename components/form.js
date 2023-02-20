@@ -56,7 +56,7 @@ function Form() {
                 }
                 onClick={() => jumpToStep(index + 1)}
               >
-                <div className={styles.groupLogo}>{item.logo()}</div>
+                <div className={styles.groupLogo}>{item.logo}</div>
                 <p className={styles.groupName}>{item.title}</p>
               </div>
             );

@@ -8,18 +8,18 @@ import {
 export default [
   {
     title: "Personal",
-    logo: IconPersonCircle,
+    logo: <IconPersonCircle />,
   },
   {
     title: "Contact",
-    logo: IconContacts,
+    logo: <IconContacts />,
   },
   {
     title: "Education History",
-    logo: IconEducation,
+    logo: <IconEducation />,
   },
   {
     title: "Emergency Contact Information",
-    logo: IconHealthBookLine,
+    logo: <IconHealthBookLine />,
   },
 ];
